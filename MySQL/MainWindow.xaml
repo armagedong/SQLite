@@ -1,0 +1,115 @@
+﻿<Window x:Class="MySQL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MySQL"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="SQLite"/>
+        <DataGrid Grid.Row="1" AutoGenerateColumns="false" Margin="5" Name="DGProduct" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Product Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Product Discription" Binding="{Binding Discription}"/>
+                <DataGridTextColumn Header="Product Price" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Product Unit" Binding="{Binding Unit}"/>
+
+                <DataGridTemplateColumn Header="Update Product">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Click="UpdateClickForEdit"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete Product">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="DeleteClick"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="5">
+                <StackPanel Margin="5">
+                    <Label Content="Add new Product" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid Margin="5" x:Name="DGAdd">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Content="Discription"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Discription}"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Content="Price"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" Content="Unit"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Unit}"/>
+
+                        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="ADD" Margin="5" Click="ADD_Click"/>
+                        
+                    </Grid>
+                </StackPanel>
+            </Border>
+            
+            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5">
+                <StackPanel Margin="5">
+                    <Label Content="Update Product" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Grid Margin="5" x:Name="DGUpdate">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Content="Discription"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Discription}"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Content="Price"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" Content="Unit"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Unit}"/>
+
+                        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Update" Margin="5" Click="Update_Click"/>
+
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+    </Grid>
+</Window>
